@@ -1,6 +1,4 @@
 import {
-  BeakerIcon,
-  HeartIcon,
   HomeIcon,
   LibraryIcon,
   PlusCircleIcon,
