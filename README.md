@@ -39,3 +39,11 @@ nvm nmanager
 
 ### NEXT MIDDLEWARE PACKAGE
 npm install next-auth@beta
+
+### .env file
+Have an .env file to store the following variables
+
+NEXT_PUBLIC_CLIENT_SECRET
+NEXT_PUBLIC_CLIENT_ID
+NEXTAUTH_URL
+JWT_SECRET
