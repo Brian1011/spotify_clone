@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-blue-500">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Spotify 2.0</title>
         <meta
@@ -13,9 +14,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <h1>This is a DOPE spotify 2.0 build</h1>
-      </div>
+      <main>
+        <Sidebar />
+
+        {/* Center */}
+      </main>
+
+      <div>{/* PLayer */}</div>
     </div>
   );
 }
