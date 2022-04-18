@@ -4,3 +4,5 @@ import { NextResponse } from "next/server";
 export async function middleware(req) {
     const token = await getToken({req, secret:process.env.JWT_SECRET});
 }
+
+// middleware
