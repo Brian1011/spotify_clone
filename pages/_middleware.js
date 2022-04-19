@@ -14,6 +14,11 @@ export async function middleware(req) {
     if (pathname.includes('/api/auth') || token ){
         return NextResponse.next();
     }
+
+    // redirect to login page if token does not exist
+    if (!token && pathname !== '/login') {
+        return NextResponse.redirect('http://localhost:3000/login');
+    }
 }
 
 // middleware
