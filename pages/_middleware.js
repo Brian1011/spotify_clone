@@ -8,7 +8,12 @@ export async function middleware(req) {
     // capture the next url
     const {pathname} = req.nextUrl;
 
-    
+    // allow the request to go through 
+    // 1.) Auth related meaning they are trying to login
+    // 2.) if the token exists
+    if (pathname.includes('/api/auth') || token ){
+        return NextResponse.next();
+    }
 }
 
 // middleware
