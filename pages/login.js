@@ -8,7 +8,7 @@ function Login({ providers }) {
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           <button className="bg-[#18D860] text-white p-5 rounded-lg"
-            onClick={()=> signIn(provider.id, {callbackUrl: "/"})}
+            onClick={()=> signIn(provider.id, {callbackUrl: "http://localhost:3000/"})}
           >
             Login with {provider.name}
           </button>
