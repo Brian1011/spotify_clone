@@ -21,7 +21,9 @@ export async function middleware(req) {
 
   // redirect to login page if token does not exist
   if (!token && pathname !== "/login") {
-    // return NextResponse.redirect("/login");
+    // new URL creates a base url i.e http://localhost:3000/
+    // you can then pass the relative url i.e '/login'
+    // the url will be http://localhost:3000/login
     return NextResponse.redirect(new URL("/login", req.url));
   }
 }
