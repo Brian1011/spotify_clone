@@ -11,7 +11,15 @@ export async function middleware(req) {
   // capture the next url
   const { pathname } = req.nextUrl;
 
-  return NextResponse.next();
+  //return NextResponse.next();
+
+  // if token exists and user is on login redirect to homepage
+  console.log(pathname);
+  if (token) {
+    console.log("************TOKEN EXISTS");
+    return NextResponse.redirect(new URL("/", req.url));
+  }
+
   // allow the request to go through
   // 1.) Auth related meaning they are trying to login
   // 2.) if the token exists
