@@ -11,7 +11,7 @@ export async function middleware(req) {
   // capture the next url
   const { pathname } = req.nextUrl;
 
-  //return NextResponse.next();
+  return NextResponse.next();
 
   // if token exists and user is on login redirect to homepage
   console.log(pathname);
