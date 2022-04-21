@@ -17,6 +17,7 @@ export async function middleware(req) {
   if (pathname.includes("/api/auth") || token) {
     //console.log(NextResponse.next());
     console.log(pathname);
+    console.log('**********************PRINT*****************');
     return NextResponse.next();
   }
 
