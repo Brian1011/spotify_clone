@@ -16,14 +16,13 @@ export async function middleware(req) {
   // 2.) if the token exists
   if (pathname.includes("/api/auth") || token) {
     //console.log(NextResponse.next());
-    console.log(pathname);
-    console.log('**********************PRINT*****************');
     return NextResponse.next();
   }
 
   // redirect to login page if token does not exist
   if (!token && pathname !== "/login") {
-    return NextResponse.redirect("http://localhost:3000/login");
+    // return NextResponse.redirect("/login");
+    return NextResponse.redirect(new URL("/login", req.url));
   }
 }
 
