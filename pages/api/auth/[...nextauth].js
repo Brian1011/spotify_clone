@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
-import { refreshAccessToken } from "spotify-web-api-node/src/server-methods";
+//import { refreshAccessToken } from "spotify-web-api-node/src/server-methods";
 import spotifyAPi, { LOGIN_URL } from "../../../lib/spotify";
 
 async function refreshUserAccessToken(token) {
@@ -14,7 +14,7 @@ async function refreshUserAccessToken(token) {
     return {
       ...token,
       accessToken: refreshedToken.access_token,
-      accessTokenExpires: Date.now + refreshedToken.expires_in * 1000, // 1 hour = 36000 returns
+      accessTokenExpires: Date.now + (refreshedToken.expires_in * 1000), // 1 hour = 36000 returns
       refreshToken: refreshedToken.refresh_token ?? token.refreshToken,
     };
   } catch (error) {
@@ -38,7 +38,7 @@ export default NextAuth({
 
   secret: process.env.JWT_SERCRET,
   pages: {
-    signIn: "/login",
+    signIn: "/",
   },
   callbacks: {
     async jwt({ token, account, user }) {

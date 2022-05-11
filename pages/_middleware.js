@@ -11,10 +11,13 @@ export async function middleware(req) {
   // capture the next url
   const { pathname } = req.nextUrl;
 
-  return NextResponse.next();
+  //return NextResponse.next();
 
   // if token exists and user is on login redirect to homepage
+  console.log("***************YOLO");
   console.log(pathname);
+  console.log(token);
+  console.log("***************YOLO");
   if (token) {
     console.log("************TOKEN EXISTS");
     return NextResponse.redirect(new URL("/", req.url));
@@ -26,7 +29,7 @@ export async function middleware(req) {
   if (pathname.includes("/api/auth") || token) {
     //console.log(NextResponse.next());
     console.log("******************allow");
-    console.log(new URL("/", req.url));
+    //console.log(new URL("/", req.url));
     return NextResponse.next();
   }
 
@@ -36,7 +39,6 @@ export async function middleware(req) {
     // you can then pass the relative url i.e '/login'
     // the url will be http://localhost:3000/login
     console.log("******************DATA");
-    console.log(new URL("/login", req.url));
     return NextResponse.redirect(new URL("/login", req.url));
   }
 }
